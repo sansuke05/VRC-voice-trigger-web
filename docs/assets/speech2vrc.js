@@ -1,4 +1,29 @@
+const IP = "127.0.0.1"
+const PORT = 12345
+
 let speechEnabled = false;
+
+function sendWebSocketMsg(message) {
+    let url = "ws://" + IP + ":" + PORT;
+    let con = new WebSocket(url);
+
+    // 接続
+    con.onopen = function(e) {
+        console.log("Socket 接続成功");
+        con.send(message);
+
+    }
+
+    con.onerror = function(error) {
+        console.log('通信エラーが発生しました');
+    }
+
+    con.onmessage = function(e) {
+        console.log(e.data);
+        con.close();
+    }
+}
+
 
 function recognize() {
     // WebAPIのインスタンス化
@@ -44,10 +69,11 @@ function initSpeak() {
 
 // 音声認識開始
 function onStart() {
-    initSpeak();
+    //initSpeak();
+    sendWebSocketMsg("Socket test from chrome!");
 
     if(!speechEnabled){
-        recognize();
+        //recognize();
     }
     speechEnabled = true;
 }
