@@ -7,19 +7,23 @@ function sendWebSocketMsg(message) {
     let url = "ws://" + IP + ":" + PORT;
     let con = new WebSocket(url);
 
-    // 接続
+    // 接続してメッセージ送信
     con.onopen = function(e) {
         console.log("Socket 接続成功");
         con.send(message);
-
     }
 
     con.onerror = function(error) {
         console.log('通信エラーが発生しました');
     }
 
+    // サーバーからメッセージの受信
     con.onmessage = function(e) {
-        console.log(e.data);
+        if(e.data === "Socket OK!") {
+            console.log(e.data);
+        } else {
+            console.log("ローカルサーバーへのメッセージの送信に失敗しました");
+        }
         con.close();
     }
 }
@@ -48,6 +52,8 @@ function recognize() {
         } else {
             console.log(input);
             document.getElementById("recognizedText").textContent = input;
+            sendWebSocketMsg(input);
+
             input = defaultInput;
             recognition.start()
         }
@@ -69,11 +75,10 @@ function initSpeak() {
 
 // 音声認識開始
 function onStart() {
-    //initSpeak();
-    sendWebSocketMsg("Socket test from chrome!");
+    initSpeak();
 
     if(!speechEnabled){
-        //recognize();
+        recognize();
     }
     speechEnabled = true;
 }
