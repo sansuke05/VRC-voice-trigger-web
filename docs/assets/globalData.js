@@ -1,0 +1,1 @@
+var jsonMsg = { Mode : "init", Message : "" }

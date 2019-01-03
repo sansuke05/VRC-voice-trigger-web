@@ -1,35 +1,4 @@
-const IP = "127.0.0.1"
-const PORT = "12345"
-
-let speechEnabled = false;
-
-function sendWebSocketMsg(message) {
-    let url = "ws://" + IP + ":" + PORT;
-    let con = new WebSocket(url);
-
-    // 接続してメッセージ送信
-    con.onopen = function(e) {
-        console.log("Socket 接続成功");
-        con.send(message);
-    }
-
-    con.onerror = function(error) {
-        console.log('通信エラーが発生しました');
-    }
-
-    // サーバーからメッセージの受信
-    con.onmessage = function(e) {
-        if(e.data === "Socket OK!") {
-            console.log(e.data);
-        } else {
-            console.log("ローカルサーバーへのメッセージの送信に失敗しました");
-        }
-        con.close();
-    }
-}
-
-
-function recognize() {
+var recognize = function() {
     // WebAPIのインスタンス化
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
@@ -52,7 +21,11 @@ function recognize() {
         } else {
             console.log(input);
             document.getElementById("recognizedText").textContent = input;
-            sendWebSocketMsg(input);
+
+            // jsonMsgの更新
+            
+
+            communicateWebSocket();
 
             input = defaultInput;
             recognition.start()
@@ -61,24 +34,4 @@ function recognize() {
     
     // 聞き取りを開始する
     recognition.start();
-}
-
-// ボタンクリック時の処理
-function initSpeak() {
-    document.getElementById("activation").innerHTML = "認識中";
-    console.log("button clicked!");
-
-    let initSynth = new SpeechSynthesisUtterance("音声認識を開始します");
-    initSynth.lang = "ja-JP";
-    speechSynthesis.speak(initSynth);
-}
-
-// 音声認識開始
-function onStart() {
-    initSpeak();
-
-    if(!speechEnabled){
-        recognize();
-    }
-    speechEnabled = true;
 }
