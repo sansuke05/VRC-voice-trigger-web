@@ -23,7 +23,8 @@ var recognize = function() {
             document.getElementById("recognizedText").textContent = input;
 
             // jsonMsgの更新
-            
+            jsonMsg.Mode = "speech";
+            jsonMsg.Message = input;
 
             communicateWebSocket();
 
