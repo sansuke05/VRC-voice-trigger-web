@@ -19,3 +19,9 @@ function onStart() {
     }
     speechEnabled = true;
 }
+
+// 画面ロード時の処理
+// ワールド情報取得メッセージを鯖に投げる
+window.onload = function() {
+    communicateWebSocket();
+}
