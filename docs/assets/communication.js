@@ -20,11 +20,19 @@ var communicateWebSocket = function() {
 
     // サーバーからメッセージの受信
     con.onmessage = function(e) {
-        if(e.data === "Socket OK!") {
+        let reseavedJSON = JSON.parse(e.data);
+
+        if(reseavedJSON.Status === "Socket OK!") {
             console.log(e.data);
         } else {
             console.log("ローカルサーバーへのメッセージの送信に失敗しました");
+            return;
         }
+
+        if(reseavedJSON.Mode === "init") {
+            setWorldInfo(reseavedJSON.Message);
+        }
+
         con.close();
     }
 }
