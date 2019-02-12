@@ -24,10 +24,16 @@
 
 <body>
     <h3>VRChat Speech Trigger</h3>
+    <br>
+
+    ワールド選択： <select id="worldNames"></select>
+    <br><br>
     
     認識内容：<div id="recognizedText"></div> <br>
 
-    <button id="activation" onclick="onStart();">音声認識開始</button>
+    <button id="activation"
+        style="border-width:4; background-color:#ff75d6;"
+        onclick="onStart();">音声認識開始</button>
     <div id="content"></div>
 
     <br><br>
