@@ -1,5 +1,19 @@
 let speechEnabled = false;
 
+// ワールドセレクト時の処理
+$(document).ready(function() {
+    $("#worldNames").change(function() {
+        var world = $(this).val();
+        
+        // jsonMsgの更新
+        jsonMsg.Mode = "chworld";
+        jsonMsg.Message = world;
+
+        communicateWebSocket();
+    });
+});
+
+
 // ボタンクリック時の処理
 function initSpeak() {
     document.getElementById("activation").innerHTML = "認識中";
