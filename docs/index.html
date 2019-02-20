@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VRChat Speech Trigger</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/globalData.js"></script>
     <script type="text/javascript" src="assets/initializer.js"></script>
     <script type="text/javascript" src="assets/communication.js"></script>
@@ -24,10 +25,16 @@
 
 <body>
     <h3>VRChat Speech Trigger</h3>
+    <br>
+
+    ワールド選択： <select id="worldNames"></select>
+    <br><br>
     
     認識内容：<div id="recognizedText"></div> <br>
 
-    <button id="activation" onclick="onStart();">音声認識開始</button>
+    <button id="activation"
+        style="border-width:4; background-color:#ff75d6;"
+        onclick="onStart();">音声認識開始</button>
     <div id="content"></div>
 
     <br><br>
