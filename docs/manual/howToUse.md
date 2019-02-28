@@ -70,7 +70,17 @@ Voice Trigger 設定データは以下の画像のような構造になってい
 
 ## お知らせ
 
-このプログラムのソースコードは以下のサイトにてオープンソースで公開されています。
+プログラムの不具合、要望等については下記の連絡先までご連絡お願いします。
+
+- Twitter: [@sansuke05_vr](https://twitter.com/sansuke05_vr)
+
+- E-mail: sansuke05@gmail.com
+
+- Github: [sansuke05](https://github.com/sansuke05)
+
+- 個人discordサーバー: [キラキラママラボ](https://discord.gg/XYAcZhc)
+
+また、このプログラムのソースコードは以下のサイトにてオープンソースで公開されています。(pull request等もお待ちしております(特にwebサイトのUI))
 
 アプリ本体：https://github.com/sansuke05/VRC-voice-trigger-local-server (MITライセンス)
 
