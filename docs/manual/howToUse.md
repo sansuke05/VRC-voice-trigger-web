@@ -22,15 +22,15 @@ Google Chrome 以外のブラウザでは正しく動作しませんので使用
 
 以下のように、VoiceTriggerを一度でも起動すると、アプリと一緒に「TeiggerSettings」フォルダが作成されます。
 
-[フォルダの画像]
+![フォルダの画像](img/voice_trigger_folder.png)
 
 この「TeiggerSettings」フォルダの中に、「●●.json」形式のVoiceTrigger設定データを置きます。
 
-[TeiggerSettingsフォルダにjsonファイルが置かれた画像]
+![TeiggerSettingsフォルダにjsonファイルが置かれた画像](img/trigger_settings_folder.png)
 
 この状態で voice_trigger.exe を起動するとwebページのワールド選択メニューに先ほどの設定データのワールド名が出てくれば、導入成功です。
 
-[webページの画像]
+![webページの画像](img/web_screen.png)
 
 ## サンプルワールドについて
 
@@ -50,11 +50,19 @@ Voice Triggerを使えるワールドを制作するためには`VRChat SDK`の`
 
 ### VoceTrigger設定データの作成方法
 
+設定ファイルは右クリックして「プログラムから開く」からメモ帳などのテキストエディタで開く事で閲覧できます。
+
 Voice Trigger 設定データは以下の画像のような構造になっています。
 
 ![VoiceTrigger設定データ画像](img/TriggerSetting.png)
 
-上記の画像に対応した`VRC_Osc Button In`の項目と、Button On/Off時のキーワードを記載すれば設定データを作ることができます。
+新しい設定データの作成手順は以下のようになります。
+
+1. テキストエディタで新規ファイルを作成
+
+2. 上記の画像を参考にして、対応した`VRC_Osc Button In`の項目と、Button On/Off時のキーワードを記載
+
+3. ファイルを`(適当な名前).json`という形式で保存 (このとき、文字コードの項目を**UTF-8**を指定して保存する様にしてください。他の文字コードではプログラムが正常に読み取れません)
 
 ## 免責事項
 
