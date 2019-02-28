@@ -35,7 +35,7 @@ Google Chrome 以外のブラウザでは正しく動作しませんので使用
 
 デフォルトでは、デモワールドの設定データのみ入っていますが、自分でVoiceTriggerが使えるワールドを制作したり、他の人が作ったワールドのVoiceTriggerデータを導入する事で、そのワールドでVoiceTriggerを使えるようになります。
 
-ワールドの制作方法や、VoiceTrigger設定データの制作方法については、[VRChat Voice Triggerの使えるワールドの制作について] をご覧下さい。ここではその設定データを導入する方法について記載します。
+ワールドの制作方法や、VoiceTrigger設定データの制作方法については、[VRChat Voice Triggerの使えるワールドの制作について](#VRChatVoiceTrigger) をご覧下さい。ここではその設定データを導入する方法について記載します。
 
 以下のように、VoiceTriggerを一度でも起動すると、アプリと一緒に「TeiggerSettings」フォルダが作成されます。
 
