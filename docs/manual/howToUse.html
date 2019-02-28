@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>howToUse.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<h1 id="vrchat-voice-trigger">VRChat Voice Trigger</h1>
+<!-- vscode-markdown-toc -->
+<ul>
+<li>
+<ol>
+<li><a href="#0">注意事項</a></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><a href="#-1">基本的な使い方</a></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><a href="#VoiceTrigger">ワールドのVoiceTrigger設定データの導入</a></li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li><a href="#-2">サンプルワールドについて</a></li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li><a href="#VRChatVoiceTrigger">VRChat Voice Triggerの使えるワールドの制作について</a></li>
+</ol>
+<ul>
+<li>5.1. <a href="#OSC">OSCメッセージを受信するワールドの制作</a></li>
+<li>5.2. <a href="#VoceTrigger">VoceTrigger設定データの作成方法</a></li>
+</ul>
+</li>
+<li>
+<ol start="6">
+<li><a href="#-3">免責事項</a></li>
+</ol>
+</li>
+<li>
+<ol start="7">
+<li><a href="#-4">お知らせ</a></li>
+</ol>
+</li>
+</ul>
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+<br>
+<h2 id="1-a-name0a%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85">1. <a name='0'></a>注意事項</h2>
+<p>Google Chrome 以外のブラウザでは正しく動作しませんので使用する際は予めデフォルトのブラウザに Google Chrome を設定するようお願いします</p>
+<br>
+<h2 id="2-a-name-1a%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9">2. <a name='-1'></a>基本的な使い方</h2>
+<ol>
+<li>
+<p>voice_trigger.exe を開きます</p>
+</li>
+<li>
+<p>ブラウザが開いてwebページが表示されるのでワールド選択メニューから行きたいワールドを選択します</p>
+</li>
+<li>
+<p>「音声認識開始」ボタンを押します</p>
+</li>
+<li>
+<p>VRChatで選択したワールドに移動し、ワールドに設定されたトリガーに対応した言葉を話すとワールドオブジェクトが反応します</p>
+</li>
+</ol>
+<br>
+<h2 id="3-a-namevoicetriggera%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%81%AEvoicetrigger%E8%A8%AD%E5%AE%9A%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B0%8E%E5%85%A5">3. <a name='VoiceTrigger'></a>ワールドのVoiceTrigger設定データの導入</h2>
+<p>デフォルトでは、デモワールドの設定データのみ入っていますが、自分でVoiceTriggerが使えるワールドを制作したり、他の人が作ったワールドのVoiceTriggerデータを導入する事で、そのワールドでVoiceTriggerを使えるようになります。</p>
+<p>ワールドの制作方法や、VoiceTrigger設定データの制作方法については、<a href="#VRChatVoiceTrigger">VRChat Voice Triggerの使えるワールドの制作について</a> をご覧下さい。ここではその設定データを導入する方法について記載します。</p>
+<p>以下のように、VoiceTriggerを一度でも起動すると、アプリと一緒に「TeiggerSettings」フォルダが作成されます。</p>
+<p><img src="img/voice_trigger_folder.png" alt="フォルダの画像"></p>
+<p>この「TeiggerSettings」フォルダの中に、「●●.json」形式のVoiceTrigger設定データを置きます。</p>
+<p><img src="img/trigger_settings_folder.png" alt="TeiggerSettingsフォルダにjsonファイルが置かれた画像"></p>
+<p>この状態で voice_trigger.exe を起動するとwebページのワールド選択メニューに先ほどの設定データのワールド名が出てくれば、導入成功です。</p>
+<p><img src="img/web_screen.png" alt="webページの画像"></p>
+<br>
+<h2 id="4-a-name-2a%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">4. <a name='-2'></a>サンプルワールドについて</h2>
+<ul>
+<li>
+<p>webページのワールド選択メニューから「VoiceTriggerTesting」ワールドを選択します。</p>
+</li>
+<li>
+<p>「ワールドを開く」ボタンか<a href="https://vrchat.com/home/world/wrld_5d9e20c4-b510-4c80-83d9-ac0f95596dd9">こちら</a>にアクセスしてサンプルワールドを開くか、私(VRCID:sansuke05)がサンプルワールド(VoiceTriggerTesting)を開いているときにjoinすることで VRChat Voice Trigger を体験していただくことができます。</p>
+</li>
+</ul>
+<br>
+<h2 id="5-a-namevrchatvoicetriggeravrchat-voice-trigger%E3%81%AE%E4%BD%BF%E3%81%88%E3%82%8B%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%81%AE%E5%88%B6%E4%BD%9C%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">5. <a name='VRChatVoiceTrigger'></a>VRChat Voice Triggerの使えるワールドの制作について</h2>
+<p>ここでは VRChat Voice Trigger の使えるワールドを制作する為の簡単な概要について記載します。</p>
+<h3 id="51-a-nameoscaosc%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%82%92%E5%8F%97%E4%BF%A1%E3%81%99%E3%82%8B%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%81%AE%E5%88%B6%E4%BD%9C">5.1. <a name='OSC'></a>OSCメッセージを受信するワールドの制作</h3>
+<p>Voice Triggerを使えるワールドを制作するためには<code>VRChat SDK</code>の<code>VRC_OscButtonIn</code>を設定したワールドを制作します。</p>
+<p>具体的な<code>VRC_OscButtonIn</code>とTriggerの設定方法については、じぇしかさんの<a href="https://jscmla1118.hatenablog.com/entry/2018/11/10/184833">こちら</a>の記事の <strong>OSCメッセージ受信側の実装</strong> の箇所を参考に制作してみてください。</p>
+<h3 id="52-a-namevocetriggeravocetrigger%E8%A8%AD%E5%AE%9A%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E4%BD%9C%E6%88%90%E6%96%B9%E6%B3%95">5.2. <a name='VoceTrigger'></a>VoceTrigger設定データの作成方法</h3>
+<p>設定ファイルは右クリックして「プログラムから開く」からメモ帳などのテキストエディタで開く事で閲覧できます。</p>
+<p>Voice Trigger 設定データは以下の画像のような構造になっています。</p>
+<p><img src="img/TriggerSetting.png" alt="VoiceTrigger設定データ画像"></p>
+<p>新しい設定データの作成手順は以下のようになります。</p>
+<ol>
+<li>
+<p>テキストエディタで新規ファイルを作成</p>
+</li>
+<li>
+<p>上記の画像を参考にして、対応した<code>VRC_Osc Button In</code>の項目と、Button On/Off時のキーワードを記載</p>
+</li>
+<li>
+<p>ファイルを<code>(適当な名前).json</code>という形式で保存 (このとき、文字コードの項目を<strong>UTF-8</strong>を指定して保存する様にしてください。他の文字コードではプログラムが正常に読み取れません)</p>
+</li>
+</ol>
+<br>
+<h2 id="6-a-name-3a%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85">6. <a name='-3'></a>免責事項</h2>
+<p>このソフトウェアを使用して生じたいかなる障害について、開発者であるサンスケ(sansuke05)は一切の責任を負いかねます。</p>
+<br>
+<h2 id="7-a-name-4a%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B">7. <a name='-4'></a>お知らせ</h2>
+<p>プログラムの不具合、要望等については下記の連絡先までご連絡お願いします。</p>
+<ul>
+<li>
+<p>Twitter: <a href="https://twitter.com/sansuke05_vr">@sansuke05_vr</a></p>
+</li>
+<li>
+<p>E-mail: sansuke05@gmail.com</p>
+</li>
+<li>
+<p>Github: <a href="https://github.com/sansuke05">sansuke05</a></p>
+</li>
+<li>
+<p>個人discordサーバー: <a href="https://discord.gg/XYAcZhc">キラキラママラボ</a></p>
+</li>
+</ul>
+<p>また、このプログラムのソースコードは以下のサイトにてオープンソースで公開されています。(pull request等もお待ちしております(特にwebサイトのUI))</p>
+<p>アプリ本体：<a href="https://github.com/sansuke05/VRC-voice-trigger-local-server">https://github.com/sansuke05/VRC-voice-trigger-local-server</a> (MITライセンス)</p>
+<p>webページ：<a href="https://github.com/sansuke05/VRC-voice-trigger-web">https://github.com/sansuke05/VRC-voice-trigger-web</a></p>
+<br>
+
+</body>
+</html>
